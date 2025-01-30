@@ -1,0 +1,67 @@
+* { 
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #dac775;
+    text-align: center;
+}
+
+.container {
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+}
+
+.game {
+    height: 60vmin;
+    width: 60vmin;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5vmin;
+}
+
+.box {
+    font-size: 24px; /* Increased font size for better visibility */
+    height: 18vh;
+    width: 18vh;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgb(76, 74, 74);
+    color: #000000;
+    font-size: xx-large;
+}
+
+.box:hover {
+    background-color: #e88b8b; /* Lighter shade on hover */
+    cursor: pointer; /* Indicate clickable item */
+}
+
+#reset-btn {
+    font-size: x-large;
+    padding: 1rem;
+    background-color: #E75353;
+    border: none;
+    border-radius: 10px;
+}
+#msg{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: #52ca3a;
+    font-size: x-large;
+}
+#new-btn{
+    font-size: x-large;
+    padding: 1rem;
+    background-color: #72fc01;
+    border: none;
+    border-radius: 10px;
+}
+.hide{
+    display: none;
+}
+
+
