@@ -2,7 +2,7 @@ let Button = document.getElementById("button");
 let Email = document.getElementById("email");
 let Password = document.getElementById("password");
 let Name = document.getElementById("name");
-
+let Logout = document.getElementById("logout");
 const submitHandler = async () => {
   if (!Name.value || !Email.value || !Password.value) {
     alert("Please fill in all fields");
@@ -50,7 +50,18 @@ const loginHandler = async () => {
     alert(data.message);
     console.log(data.token);
     localStorage.setItem("userKeepToken", data.token);
+    window.location.href = "http://127.0.0.1:5500/dashboard.html";
     console.log(data);
+  } catch (error) {
+    alert(error.message);
+  }
+};
+
+const logOut = async () => {
+  try {
+    localStorage.removeItem("userKeepToken");
+    alert("Logged out successfully");
+    window.location.href = "http://127.0.0.1:5500/login.html";
   } catch (error) {
     alert(error.message);
   }
