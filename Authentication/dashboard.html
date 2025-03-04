@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+  </head>
+  <body>
+    <h1>Welcome, User!</h1>
+    <button id="logout" onclick="logOut()">Logout</button>
+
+    <script>
+      // Check if user is authenticated
+      const token = localStorage.getItem("userKeepToken");
+
+      if (!token) {
+        alert("You are not logged in!");
+        window.location.href = "http://localhost:5500/login.html"; // Redirect to login page
+      } else {
+        // Verify token with backend
+        fetch("http://localhost:8080/dashboard", {
+          method: "GET",
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
+        })
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error("Unauthorized access");
+            }
+            return response.json();
+          })
+          .then((data) => {
+            console.log(data);
+            document.querySelector(
+              "h1"
+            ).textContent = `Welcome, User ID: ${data.userId}`;
+          })
+          .catch((error) => {
+            alert("Session expired or unauthorized!");
+            localStorage.removeItem("userKeepToken"); // Remove invalid token
+            window.location.href = "http://localhost:5500/login.html"; // Redirect to login
+          });
+      }
+
+      // Logout function
+      function logOut() {
+        localStorage.removeItem("userKeepToken");
+        alert("Logged out successfully!");
+        window.location.href = "http://localhost:5500/login.html";
+      }
+    </script>
+  </body>
+</html>
