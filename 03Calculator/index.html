@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #282c34;
+    }
+
+    .box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: #1e1e1e;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+      width: 320px;
+    }
+
+    input {
+      width: 100%;
+      height: 50px;
+      font-size: 24px;
+      text-align: right;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: none;
+      border-radius: 5px;
+      background-color: #333;
+      color: white;
+    }
+
+    .buttons {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+
+    button {
+      width: 70px;
+      height: 70px;
+      font-size: 20px;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.2s;
+      background-color: #444;
+      color: white;
+    }
+
+    button:hover {
+      background-color: #666;
+    }
+
+    button:active {
+      background-color: #888;
+    }
+
+    .operator {
+      background-color: #ff9500;
+    }
+
+    .operator:hover {
+      background-color: #ffa233;
+    }
+
+    .equal {
+      background-color: #1dd1a1;
+    }
+
+    .equal:hover {
+      background-color: #20e4b3;
+    }
+
+    .clear {
+      background-color: #d63031;
+    }
+
+    .clear:hover {
+      background-color: #ff5f5f;
+    }
+    p {
+      color: #fff;
+      margin-bottom: 10px;
+    }
+  </style>
+  <body>
+    <div class="box">
+      <p>Created by Huzaifa Ali</p>
+      <input id="text" type="text" readonly value="0" />
+      <div class="buttons">
+        <button onclick="getInput('1')">1</button>
+        <button onclick="getInput('2')">2</button>
+        <button onclick="getInput('3')">3</button>
+        <button class="operator" onclick="setOperator('+')">+</button>
+
+        <button onclick="getInput('4')">4</button>
+        <button onclick="getInput('5')">5</button>
+        <button onclick="getInput('6')">6</button>
+        <button class="operator" onclick="setOperator('-')">-</button>
+
+        <button onclick="getInput('7')">7</button>
+        <button onclick="getInput('8')">8</button>
+        <button onclick="getInput('9')">9</button>
+        <button class="operator" onclick="setOperator('*')">*</button>
+
+        <button onclick="getInput('0')">0</button>
+        <button class="clear" onclick="clearInput()">AC</button>
+        <button class="equal" onclick="calculate()">=</button>
+        <button class="operator" onclick="setOperator('/')">/</button>
+      </div>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
